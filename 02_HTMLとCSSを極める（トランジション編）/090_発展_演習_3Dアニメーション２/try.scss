@@ -1,0 +1,56 @@
+$cWhite: white;
+$cBlack: black;
+
+#container {
+  text-align: center;
+}
+.try {
+  .btn {
+    position: relative;
+    display: inline-block;
+    transform-style: preserve-3d;
+    perspective: 300px;
+    width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    perspective: 300px;
+
+    &.cubic {
+      /** スタイルをここに追加。*/
+      & span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 1px solid $cBlack;
+        line-height: 48px; //ラインを中央に揃えるボーダーの分外してて親の要素と同じ高さ指定(一行に収まる場合のみ)
+        text-align: center;
+        transition: all 0.3s;
+      }
+      & .hovering {
+        background-color: $cBlack;
+        color: $cWhite;
+        transform: rotateX(90deg); //奥方向に９０度
+        transform-origin: center center -25px;
+        //-25pxはZ軸回転の軸をheightが50pxの要素のちょうど半分とすることで要素の中心を基準に回転させられる
+      }
+      & .default {
+        background-color: $cWhite;
+        color: $cBlack;
+        transform: rotateX(0);
+        transform-origin: center center -25px;
+      }
+      &:hover {
+        & .hovering {
+          transform: rotateX(0); //回転後前に
+        }
+        & .default {
+          transform: rotateX(-90deg); //回転後下に
+        }
+      }
+    }
+  }
+}

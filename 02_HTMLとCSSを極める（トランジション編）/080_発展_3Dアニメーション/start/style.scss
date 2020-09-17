@@ -1,0 +1,60 @@
+$cWhite: white;
+$cBlack: black;
+
+#container {
+  text-align: center;
+}
+
+.btn {
+  background-color: $cWhite;
+  color: $cBlack;
+  border: 1px solid $cBlack;
+  padding: 10px 40px;
+  margin: 50px 0;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  &.cover-3d {
+    position: relative;
+    z-index: 1;
+    transform-style: preserve-3d; //子要素に3Dアニメーション
+    perspective: 300px; //奥行きの指定
+    //上の二つが3Dアニメーションの場合に必要XYZ軸が付与できる
+
+    & span {
+      display: inline-block;
+      transform: translateZ(20px);
+      //z-indexの代わりにこのように実装 Z軸が平面にきた時より前に変化
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background-color: $cBlack;
+      position: absolute;
+      top: 0;
+      left: 0;
+      //x軸を軸に回転させる
+      transform: rotateX(90deg);
+      transition: all 0.3s;
+      transform-origin: top center;
+      // z-index: -1;
+      //3dの中に組み込まれているとz-indexは無視されてしまう。平面上にきたときだけの反映になる
+      //パタッとするもの消す
+      opacity: 0;
+    }
+
+    &:hover {
+      color: $cWhite;
+
+      &::before {
+        transform: none;
+        //パタっと表示
+        opacity: 1;
+      }
+    }
+  }
+}
