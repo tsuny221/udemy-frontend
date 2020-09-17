@@ -1,0 +1,40 @@
+$cBlack: black;
+
+.three-dot-spinner {
+  text-align: center;
+
+  & div {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    background-color: $cBlack;
+    border-radius: 50%;
+    animation: sk-bouncedelay 1.4s infinite;
+    //1.4秒かけてsk-bouncedelayが無限にアニメーションするということ
+  }
+  & .bounce1 {
+    //アニメーションの遅延を設定
+    animation-delay: -0.32s;
+  }
+  & .bounce2 {
+    //アニメーションの遅延を設定
+    animation-delay: -0.16s;
+  }
+}
+
+//キーフレームでアニメーション内容を0~100%に分けて状態を設定していく
+@keyframes sk-bouncedelay {
+  0% {
+    //スケール大きさの変化を決めて、それをずらすと見本のようになる
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
