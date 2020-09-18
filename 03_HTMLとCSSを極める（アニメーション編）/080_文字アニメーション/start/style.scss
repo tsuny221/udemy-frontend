@@ -1,0 +1,49 @@
+@import "mixin";
+
+body {
+  margin: 0;
+  font-family: "Teko", sans-serif;
+}
+#container {
+  position: relative;
+  height: 100vh;
+  background-color: teal;
+  .animate-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em; //ベースサイズから２倍
+    opacity: 0; //押す前非表示
+
+    &.inview {
+      opacity: 1; //押したら表示
+      & .char {
+        display: inline-block; //spanはinlineなのでこれを設定しないとtransformが適用しない
+        @include animation(
+          $name: kf-animate-chars,
+          $duration: 0.5s,
+          $timing-function: cubic-bazier(0.38, 1.57, 0.58, 1),
+          $fill-mode: both //開始前もあとも状態維持
+        );
+        @for $i from 1 through 9 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * 0.04s;
+          }
+        }
+      }
+    }
+  }
+
+  @keyframes kf-animate-chars {
+    0% {
+      opacity: 0;
+      transform: translateY(-50%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
