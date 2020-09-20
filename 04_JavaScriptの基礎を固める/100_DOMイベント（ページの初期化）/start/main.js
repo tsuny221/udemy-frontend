@@ -1,10 +1,12 @@
-const dcl = document.querySelector('.dcl');
-const load = document.querySelector('.load');
+const dcl = document.querySelector(".dcl");
+const load = document.querySelector(".load");
 
 document.addEventListener("DOMContentLoaded", function () {
-    dcl.classList.add('done');
-});
+  const h1 = document.querySelector("h1");
+  h1.style.color = "red";
+  dcl.classList.add("done");
+}); //windowでもOK
 
 window.addEventListener("load", function () {
-    load.classList.add('done');
-});
+  load.classList.add("done");
+}); //documentは登録できない
