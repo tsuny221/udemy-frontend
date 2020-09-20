@@ -1,22 +1,27 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const el = document.querySelector('.animate-title');
-    const el2 = document.querySelector('.animate-title-2');
-    const str = el.innerHTML.trim().split("");
-    const str2 = el2.innerHTML.trim().split("");
-    
-    // let concatStr = '';
-
-    // for(let c of str) {
-    //     c = c.replace(/\s+/, '&nbsp;');
-    //     concatStr += `<span class="char">${c}</span>`;
-    // }
-
-    el.innerHTML = str.reduce((acc, curr) => {
-        curr = curr.replace(/\s+/, '&nbsp;');
-        return `${acc}<span class="char">${curr}</span>`;
-    }, "");
-    el2.innerHTML = str2.reduce((acc, curr) => {
-        curr = curr.replace(/\s+/, '&nbsp;');
-        return `${acc}<span class="char">${curr}</span>`;
-    }, "");
+document.addEventListener("DOMContentLoaded", function () {
+  const ta = new TextAnimation(".animate-title"); //初期化(インスタンス化)
+  const ta2 = new TextAnimation(".animate-title-2"); //初期化(インスタンス化)
+  setTimeout(() => {
+    ta.animate();
+    ta2.animate();
+  }, 1000);
 });
+
+class TextAnimation {
+  constructor(el) {
+    this.el = document.querySelector(el);
+    this.chars = this.el.innerHTML.trim().split("");
+    this.el.innerHTML = this._splitText();
+  }
+  //プライベートメソッド(クラスの中のみ)実際は呼べちゃうけどエンジニア間での暗黙の了解
+  _splitText() {
+    return this.chars.reduce((acc, curr) => {
+      curr = curr.replace(/\s+/, "&nbsp;");
+      return `${acc}<span class="char">${curr}</span>`;
+    }, "");
+  }
+  //パブリックメソッド(他でも使用可能)
+  animate() {
+    this.el.classList.toggle("inview"); //()中がついてたら削除ついてなかったら追加
+  }
+}
