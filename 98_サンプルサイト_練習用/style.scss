@@ -1,0 +1,23 @@
+// @import url("mobile.css") screen and (max-width: 600px);
+// @import url("desktop.css") screen and (min-width: 601px); //cssはurlが必要
+
+// @media screen and (max-width: 600px) {
+//   @import "mobile.scss";
+// }
+
+//基本的な方法
+@import "mobile.scss"; //こちらをベースにサイズが違うときの変化のみ記述する方法→モバイルファースト（逆もあり）基本はモバイルファーストで
+
+@media screen and (min-width: 600px) {
+  @import "desktop.scss";
+}
+
+// //印刷時
+// @media print and (min-width: 600px) {
+//   @import "desktop.scss";
+// }
+
+// //全て
+// @media (min-width: 600px) {
+//   @import "desktop.scss";
+// }
