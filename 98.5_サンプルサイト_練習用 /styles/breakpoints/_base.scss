@@ -40,7 +40,7 @@ img {
   max-width: $contentMaxWidth;
 }
 .main-title {
-  @extend .font-lg;
+  @extend .font-lg; //このように継承しておくとmediaクエリが適用できる
   font-weight: 600;
   margin-bottom: 0;
   display: block;
@@ -49,6 +49,7 @@ img {
   @extend .font-sm;
   color: $cSubTitle;
 }
+//他のサイズでも使うので切り出しておく
 .flex {
   display: flex;
   flex-direction: column;
@@ -140,7 +141,7 @@ main {
 
   &__title {
     position: relative;
-
+    //伸びてくる棒
     @include p-base(
       $display: none,
       $width: 100px,
@@ -162,11 +163,11 @@ main {
   &__img {
     height: 300px;
     @extend .mb-sm;
-    transition: box-shadow 1ms linear 0.8s;
+    transition: box-shadow 1ms linear 0.8s; //画像の内側の影
 
     & > img {
-      position: relative;
-      z-index: -1;
+      position: relative; //影を上に持ってくる
+      z-index: -1; //影を上に持ってくる
       object-fit: cover;
       width: 100%;
       height: 100%;
@@ -189,11 +190,11 @@ main {
 }
 
 .houses {
-  @extend .content-width;
+  @extend .content-width; //このようにすると余白が再度に作れる
   @extend .mb-lg;
 
   &__inner {
-    @extend .flex;
+    @extend .flex; //house__item横並び
   }
 
   &__title {
@@ -203,15 +204,16 @@ main {
 
   &__btn {
     text-align: center;
-    flex-basis: 100%;
+    flex-basis: 100%; //ボタンはどのサイズでも折り返したくないので100%
   }
 }
 
 .popular {
   &__inner {
     position: relative;
+    //mixinで設定している
     @include p-base($top: 10%, $height: 90%) {
-      background: $cBgGray;
+      background: $cBgGray; //背景色の設定
     }
     // &::before {
     //   content: '';
@@ -224,10 +226,10 @@ main {
     // }
   }
   &__header {
-    @extend .content-width;
+    @extend .content-width; //背景色をつけるのでcontainerにcontent-widthを指定しているそのためこっちはタイトル個別に指定
   }
   &__container {
-    position: relative;
+    position: relative; //背景色を後ろに設定させるため
     z-index: 2;
     @extend .flex;
     @extend .content-width;
@@ -297,7 +299,7 @@ main {
       color: $cSubTitle;
     }
   }
-
+  //footer内のロゴ
   & .logo {
     font-size: 38px;
     justify-content: center;

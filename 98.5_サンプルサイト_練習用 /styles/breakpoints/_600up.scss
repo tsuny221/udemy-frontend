@@ -4,49 +4,49 @@ Stylesheet: 600px以上のタブレットやモニタで適用
 
 ******************************************************************/
 .flex {
-    flex-direction: row;
-    flex-wrap: wrap;
+  flex-direction: row; //二つ横ならびに
+  flex-wrap: wrap; //二つ以上になると折り返し
 }
 
 .houses {
-    &__item {
-        flex-basis: 50%;
-        margin-bottom: 60px;
-    }
+  &__item {
+    flex-basis: 50%; //itemの横幅指定この場合二つ並べると１００％になる
+    margin-bottom: 60px;
+  }
 }
 
 .popular {
-    &__container {
-        justify-content: space-between;
-    }
+  &__container {
+    justify-content: space-between; //端に寄せて中央は余白にする
+  }
 
-    &__item {
-        flex-basis: 47%;
-    }
+  &__item {
+    flex-basis: 47%; //二つ並べて6%分中央が開くように指定
+  }
 }
 
 .travel {
-    &__inner {
-        padding: 50px;
-    }
-    &__texts,
-    &__img {
-        flex-basis: 47%;
-    }
+  &__inner {
+    padding: 50px;
+  }
+  &__texts,
+  &__img {
+    flex-basis: 47%; //横並び
+  }
 
-    &__texts {
-        display: flex;
-        align-items: flex-end;
-    }
+  &__texts {
+    display: flex;
+    align-items: flex-end; //下揃え
+  }
 }
 
 .footer {
-    & .logo {
-        justify-content: flex-start;
-    }
+  & .logo {
+    justify-content: flex-start;
+  }
 
-    &__li {
-        margin-left: 0;
-        margin-right: 30px;
-    }
+  &__li {
+    margin-left: 0;
+    margin-right: 30px;
+  }
 }

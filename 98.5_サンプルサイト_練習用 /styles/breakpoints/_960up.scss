@@ -24,11 +24,11 @@ Stylesheet: 960px以上のモニタで適用
 
 .popular {
   &__item {
-    flex-basis: 25%;
+    flex-basis: 25%; //縦長で余白なしになる
   }
 
   &__img {
-    height: 335px;
+    height: 335px; //縦長で余白なしになる
   }
 }
 
@@ -60,9 +60,9 @@ Stylesheet: 960px以上のモニタで適用
 }
 
 .mobile-menu {
-    &__btn {
-        display: none;
-    }
+  &__btn {
+    display: none;
+  }
 }
 
 .swiper-slide {
