@@ -69,9 +69,9 @@ main {
 }
 
 #container {
-  background-color: $cWhite;
+  background-color: $cWhite; //後ろに隠れたモバイルメニューのロゴを隠す
   position: relative;
-  z-index: 10;
+  z-index: 10; //後ろに隠れたモバイルメニューのロゴを隠す
   transition: transform 0.5s, box-shadow 0.5s;
 }
 
@@ -109,7 +109,7 @@ main {
     & > a {
       color: $cBlack;
       text-decoration: none !important;
-      text-transform: uppercase;
+      text-transform: uppercase; //大文字表記
     }
   }
 
@@ -307,7 +307,7 @@ main {
 }
 
 .side {
-  display: none;
+  display: none; //1280upで表示
   position: fixed;
   top: 70%;
   transform: translateY(-50%);
@@ -317,7 +317,7 @@ main {
     color: $cBlack;
     text-decoration: none !important;
     margin: 0 40px;
-    vertical-align: middle;
+    vertical-align: middle; //inline要素に指定する
     letter-spacing: 2px;
   }
 
@@ -329,7 +329,7 @@ main {
     }
 
     & .side__inner {
-      transform-origin: top left;
+      transform-origin: top left; //文字の左上基準の回転にする
       transform: rotate(-90deg);
     }
   }
@@ -341,7 +341,7 @@ main {
     }
 
     & .side__inner {
-      transform-origin: top right;
+      transform-origin: top right; //文字の左上基準の回転にする
       transform: rotate(90deg);
     }
   }
